@@ -21,10 +21,10 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: ./mvnw dependency:go-offline -Pcircleci
+      - run: ./mvnw -B dependency:go-offline -Pcircleci
 
-      # run tests!
-      - run: ./mvnw verify -Pcircleci
+      # run tests and deploy!
+      - run: ./mvnw -B deploy -Pcircleci
 
       - store_test_results:
           path: ./target/surefire-reports
