@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>dev.sobue.spring</groupId>
+    <artifactId>spring-session-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Spring Session Demo Application</name>
+    <url>https://github.com/ssobue/spring-session-demo</url>
+    <inceptionYear>2020</inceptionYear>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/ssobue/spring-session-demo/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>CircleCI v2</system>
+        <url>https://circleci.com/gh/ssobue/spring-session-demo</url>
+    </ciManagement>
+
+    <developers>
+        <developer>
+            <id>ssobue</id>
+            <name>Sho SOBUE</name>
+            <organizationUrl>https://github.com/ssobue</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>http://github.com/ssobue/spring-session-demo</url>
+        <connection>scm:git:https://github.com/ssobue/spring-session-demo.git</connection>
+        <developerConnection>scm:git:ssh://github.com:ssobue/spring-session-demo.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>circle-ci</id>
+            <url>file:///tmp/artifacts</url>
+        </repository>
+        <snapshotRepository>
+            <id>circle-ci-snapshot</id>
+            <url>file:///tmp/artifacts</url>
+        </snapshotRepository>
+        <site>
+            <id>circle-ci-site</id>
+            <url>file:///tmp/artifacts</url>
+        </site>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>circleci</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

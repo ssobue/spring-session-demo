@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-session-demo
+  main:
+    banner-mode: off
+  profiles:
+    active: dev
+
+logging:
+  level:
+    org.apache.tomcat: warn
+    org.apache.catalina: warn
+    org.apache.coyote: warn
+    org.springframework: warn
