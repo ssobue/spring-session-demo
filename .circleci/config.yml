@@ -24,7 +24,7 @@ jobs:
       - run: ./mvnw dependency:go-offline -Pcircleci
 
       # run tests!
-      - run: ./mvnw verify site-deploy -Pcircleci
+      - run: ./mvnw verify -Pcircleci
 
       - store_artifacts:
           path: /tmp/artifacts
