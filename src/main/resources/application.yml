@@ -5,6 +5,10 @@ spring:
     banner-mode: off
   profiles:
     active: dev
+  security:
+    user:
+      name: test-user
+      password: password
 
 logging:
   level:
