@@ -1,7 +1,8 @@
 package dev.sobue.spring.session;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import static org.springframework.boot.SpringApplication.run;
 
 /**
  * Launch Class.
@@ -11,12 +12,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringSessionDemoApplication {
 
-    /**
-     * Main Method.
-     *
-     * @param args Command Line Arguments.
-     */
-    public static void main(String[] args) {
-        SpringApplication.run(SpringSessionDemoApplication.class, args);
-    }
+  /**
+   * Main Method.
+   *
+   * @param args Command Line Arguments.
+   */
+  public static void main(String[] args) {
+    run(SpringSessionDemoApplication.class, args);
+  }
 }

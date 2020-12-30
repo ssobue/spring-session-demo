@@ -12,3 +12,4 @@ logging:
     org.apache.catalina: warn
     org.apache.coyote: warn
     org.springframework: warn
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
